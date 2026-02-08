@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home (Protected)</title>
+    <script defer src="/__/firebase/12.8.0/firebase-app-compat.js"></script>
+    <script defer src="/__/firebase/12.8.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/12.8.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/12.8.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/12.8.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/12.8.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/12.8.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/12.8.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/12.8.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/12.8.0/firebase-performance-compat.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+   
+
+
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/Chart.min.css">
+    <link rel="stylesheet" href="../css/perfect-scrollbar.css">
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+
+  <style>
+    #app { display: none; }
+  </style>
+</head>
+<body>
+      <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active ps ps--active-y">
+    <div class="sidebar-header">
+        <img src="../images/logo.png" alt="" srcset="">
+    </div>
+    <div class="sidebar-menu">
+        <ul class="menu">
+                <li class="sidebar-title">Main Menu</li>    
+                <li class="sidebar-item active ">
+                    <a href="#index.html" class="sidebar-link">
+                        <svg class='icon-link' xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> 
+                        <span>Dashboard</span>
+                    </a>
+                </li>      
+                <li class="sidebar-item  has-sub">
+                    <a href="##" class="sidebar-link">
+                        <svg  class='icon-link' xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> 
+                        <span>Extra Components</span>
+                    </a>
+                    
+                    <ul class="submenu ">
+                        
+                        <li>
+                            <a href="#">Register vehicle</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">Add Parking Slot</a>
+                        </li>
+                         <li>
+                            <a href="#">Available Parking</a>
+                        </li>
+                        <li>
+                            <a href="#">users</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+
+            
+    
+        </ul>
+    </div>
+
+
+    <button class="sidebar-toggler btn x">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+    <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;">
+    </div></div><div class="ps__rail-y" style="top: 0px; height: 826px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 712px;"></div></div></div>
+        </div>
+        <div id="main">
+            <nav class="navbar navbar-header navbar-expand navbar-light">
+                <a class="sidebar-toggler" >
+                  <label for="menu_checkbox">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </label>
+                </a>
+                <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+                        <li class="dropdown nav-icon">
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
+                                <h6 class="py-2 px-4">Notifications</h6>
+                                <ul class="list-group rounded-none">
+                                    <li class="list-group-item border-0 align-items-start">
+                                        <div class="avatar bg-success me-3">
+                                            <span class="avatar-content"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></span>
+                                        </div>
+                                        <div>
+                                            <h6 class="text-bold">New Order</h6>
+                                            <p class="text-xs">
+                                                An order made by Ahmad Saugi for product Samsung Galaxy S69
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown nav-icon me-2">
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="##"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Account</a>
+                                <a class="dropdown-item active" href="##"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Messages</a>
+                                <a class="dropdown-item" href="##"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="##"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Logout</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="##" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="avatar me-1">
+                                    <img src="https://static.vecteezy.com/system/resources/previews/043/109/521/non_2x/flat-business-man-user-profile-avatar-icon-vector.jpg" alt="" srcset="">
+                                </div>
+                                <div class="d-none d-md-block d-lg-inline-block" id="user-email">Jerome</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="##"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Account</a>
+                                <a class="dropdown-item active" href="##"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Messages</a>
+                                <a class="dropdown-item" href="##"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="##"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+<div class="main-content container-fluid">
+    <div class="page-title">
+        <h3>Dashboard</h3>
+        
+            </div>
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4>Your Earnings</h4>
+                    </div>
+                    <div class="card-body" style="position: relative;">
+                        <div id="radialBars" style="min-height: 328.7px;"><div id="apexchartsypffyazm" class="apexcharts-canvas apexchartsypffyazm apexcharts-theme-light" style="width: 334px; height: 328.7px;"><svg id="SvgjsSvg1118" width="334" height="328.7" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG1120" class="apexcharts-inner apexcharts-graphical" transform="translate(5, 0)"><defs id="SvgjsDefs1119"><clippath id="gridRectMaskypffyazm"><rect id="SvgjsRect1122" width="332" height="350" x="-3" y="-1" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clippath><clippath id="gridRectMarkerMaskypffyazm"><rect id="SvgjsRect1123" width="330" height="352" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clippath></defs><g id="SvgjsG1124" class="apexcharts-radialbar"><g id="SvgjsG1125"><g id="SvgjsG1126" class="apexcharts-tracks"><g id="SvgjsG1127" class="apexcharts-radialbar-track apexcharts-track" rel="1"><path id="apexcharts-radialbarTrack-0" d="M 163 36.16768292682926 A 126.83231707317074 126.83231707317074 0 1 1 162.97786358480377 36.167684858595905" fill="none" fill-opacity="1" stroke="rgba(242,242,242,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="13.704207317073172" stroke-dasharray="0" class="apexcharts-radialbar-area" data:pathOrig="M 163 36.16768292682926 A 126.83231707317074 126.83231707317074 0 1 1 162.97786358480377 36.167684858595905"></path></g><g id="SvgjsG1129" class="apexcharts-radialbar-track apexcharts-track" rel="2"><path id="apexcharts-radialbarTrack-1" d="M 163 55.29573170731706 A 107.70426829268294 107.70426829268294 0 1 1 162.98120205909382 55.29573334774686" fill="none" fill-opacity="1" stroke="rgba(242,242,242,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="13.704207317073172" stroke-dasharray="0" class="apexcharts-radialbar-area" data:pathOrig="M 163 55.29573170731706 A 107.70426829268294 107.70426829268294 0 1 1 162.98120205909382 55.29573334774686"></path></g><g id="SvgjsG1131" class="apexcharts-radialbar-track apexcharts-track" rel="3"><path id="apexcharts-radialbarTrack-2" d="M 163 74.42378048780486 A 88.57621951219514 88.57621951219514 0 1 1 162.9845405333839 74.42378183689783" fill="none" fill-opacity="1" stroke="rgba(242,242,242,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="13.704207317073172" stroke-dasharray="0" class="apexcharts-radialbar-area" data:pathOrig="M 163 74.42378048780486 A 88.57621951219514 88.57621951219514 0 1 1 162.9845405333839 74.42378183689783"></path></g></g><g id="SvgjsG1133"><g id="SvgjsG1138" class="apexcharts-series apexcharts-radial-series" seriesName="Apples" rel="1" data:realIndex="0"><path id="SvgjsPath1139" d="M 163 36.16768292682926 A 126.83231707317074 126.83231707317074 0 0 1 210.5122222338273 280.5968766275394" fill="none" fill-opacity="0.85" stroke="rgba(50,69,209,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="14.128048780487806" stroke-dasharray="0" class="apexcharts-radialbar-area apexcharts-radialbar-slice-0" data:angle="158" data:value="44" index="0" j="0" data:pathOrig="M 163 36.16768292682926 A 126.83231707317074 126.83231707317074 0 0 1 210.5122222338273 280.5968766275394"></path></g><g id="SvgjsG1140" class="apexcharts-series apexcharts-radial-series" seriesName="Oranges" rel="2" data:realIndex="1"><path id="SvgjsPath1141" d="M 163 55.29573170731706 A 107.70426829268294 107.70426829268294 0 1 1 60.567153807442395 129.71755073084213" fill="none" fill-opacity="0.85" stroke="rgba(94,109,219,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="14.128048780487806" stroke-dasharray="0" class="apexcharts-radialbar-area apexcharts-radialbar-slice-1" data:angle="288" data:value="80" index="0" j="1" data:pathOrig="M 163 55.29573170731706 A 107.70426829268294 107.70426829268294 0 1 1 60.567153807442395 129.71755073084213"></path></g><g id="SvgjsG1142" class="apexcharts-series apexcharts-radial-series" seriesName="Bananas" rel="3" data:realIndex="2"><path id="SvgjsPath1143" d="M 163 74.42378048780486 A 88.57621951219514 88.57621951219514 0 1 1 85.52949283072905 205.9426033445635" fill="none" fill-opacity="0.85" stroke="rgba(139,150,229,0.85)" stroke-opacity="1" stroke-linecap="butt" stroke-width="14.128048780487806" stroke-dasharray="0" class="apexcharts-radialbar-area apexcharts-radialbar-slice-2" data:angle="241" data:value="67" index="0" j="2" data:pathOrig="M 163 74.42378048780486 A 88.57621951219514 88.57621951219514 0 1 1 85.52949283072905 205.9426033445635"></path></g><circle id="SvgjsCircle1134" r="76.72411585365853" cx="163" cy="163" class="apexcharts-radialbar-hollow" fill="transparent"></circle><g id="SvgjsG1135" class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)" style="opacity: 1;"><text id="SvgjsText1136" font-family="Helvetica, Arial, sans-serif" x="163" y="148" text-anchor="middle" dominant-baseline="auto" font-size="16px" font-weight="600" fill="#25a6f1" class="apexcharts-text apexcharts-datalabel-label" style="font-family: Helvetica, Arial, sans-serif;">Earnings</text><text id="SvgjsText1137" font-family="Helvetica, Arial, sans-serif" x="163" y="195" text-anchor="middle" dominant-baseline="auto" font-size="2.5rem" font-weight="400" fill="#373d3f" class="apexcharts-text apexcharts-datalabel-value" style="font-family: Helvetica, Arial, sans-serif;">$4,124</text></g></g></g></g><line id="SvgjsLine1144" x1="0" y1="0" x2="326" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1145" x1="0" y1="0" x2="326" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line></g><g id="SvgjsG1121" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend"></div></div></div>
+                        <div class="text-center mb-5">
+                            <h6>From last month</h6>
+                            <h1 class="text-green">+$2,134</h1>
+                        </div>
+                    <div class="resize-triggers"><div class="expand-trigger"><div style="width: 389px; height: 469px;"></div></div><div class="contract-trigger"></div></div></div>
+                </div>
+                <div class="card widget-todo">
+                    <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+                        <h4 class="card-title d-flex">
+                            <i class="bx bx-check font-medium-5 pl-25 pr-75"></i>Progress
+                        </h4>
+                
+                    </div>
+                    <div class="card-body px-0 py-1">
+                        <table class="table table-borderless">
+                            <tbody><tr>
+                                <td class="col-3">UI Design</td>
+                                <td class="col-6">
+                                    <div class="progress progress-info">
+                                        <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">60%</td>
+                            </tr>
+                            <tr>
+                                <td class="col-3">VueJS</td>
+                                <td class="col-6">
+                                    <div class="progress progress-success">
+                                        <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">30%</td>
+                            </tr>
+                            <tr>
+                                <td class="col-3">Laravel</td>
+                                <td class="col-6">
+                                    <div class="progress progress-danger">
+                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">50%</td>
+                            </tr>
+                            <tr>
+                                <td class="col-3">ReactJS</td>
+                                <td class="col-6">
+                                    <div class="progress progress-primary">
+                                        <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">80%</td>
+                            </tr>
+                            <tr>
+                                <td class="col-3">Go</td>
+                                <td class="col-6">
+                                    <div class="progress progress-secondary">
+                                        <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                                <td class="col-3 text-center">65%</td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2020 © Voler</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></span> by <a href="http://ahmadsaugi.com/">Ahmad Saugi</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+   <button id="logout-btn">Logout</button>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get references
+      const appEl = document.getElementById('app');
+      const userEmailEl = document.getElementById('user-email');
+      const logoutBtn = document.getElementById('logout-btn');
+
+      // Firebase Auth (Compat)
+      const auth = firebase.auth();
+
+      // Guard the page: only show if logged in; otherwise redirect to login
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          // Logged in
+          if (userEmailEl) userEmailEl.textContent = user.email || '(no email)';
+          if (appEl) appEl.style.display = 'block';
+        } else {
+          // Not logged in → go to login page
+          window.location.replace('/login.html');
+        }
+      });
+
+      // Optional: Logout handler
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', async () => {
+          try {
+            await auth.signOut();
+            window.location.replace('/login.html');
+          } catch (err) {
+            console.error(err);
+            alert('Failed to log out. Please try again.');
+          }
+        });
+      }
+    });
+  </script>
+<script src="../js/perfect-scrollbar.min.js"></script>
+<script src="../js/main.js"></script>
